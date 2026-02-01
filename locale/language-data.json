@@ -2409,6 +2409,14 @@
             ],
             "Patois"
         ],
+        "jax": [
+            "Latn",
+            [
+                "AS",
+                "PA"
+            ],
+            "Jambi"
+        ],
         "jbo": [
             "Latn",
             [
@@ -4611,6 +4619,13 @@
             ],
             "Sängö"
         ],
+        "sgh": [
+            "Latn",
+            [
+                "AS"
+            ],
+            "xuɣ̌nůni"
+        ],
         "sgs": [
             "Latn",
             [
@@ -4924,6 +4939,13 @@
         "swh": [
             "sw"
         ],
+        "sxr": [
+            "Latn",
+            [
+                "AS"
+            ],
+            "Hla'alua"
+        ],
         "sxu": [
             "Latn",
             [
@@ -4975,6 +4997,13 @@
                 "AS"
             ],
             "தமிழ்"
+        ],
+        "tao": [
+            "Latn",
+            [
+                "AS"
+            ],
+            "Ciriciring No Tao"
         ],
         "taq": [
             "taq-tfng"
@@ -5080,6 +5109,13 @@
                 "AF"
             ],
             "ትግሬ"
+        ],
+        "tiv": [
+            "Latn",
+            [
+                "AF"
+            ],
+            "tiv"
         ],
         "tji": [
             "Latn",
@@ -5231,6 +5267,13 @@
                 "AS"
             ],
             "Sinūg"
+        ],
+        "tsu": [
+            "Latn",
+            [
+                "AS"
+            ],
+            "cou"
         ],
         "tt": [
             "Cyrl",
@@ -5568,6 +5611,13 @@
                 "PA"
             ],
             "Manado"
+        ],
+        "xnb": [
+            "Latn",
+            [
+                "AS"
+            ],
+            "Kanakanavu"
         ],
         "xon": [
             "Latn",
@@ -6680,6 +6730,7 @@
             "ccp",
             "bfq",
             "njo",
+            "wsg",
             "bo",
             "bpy",
             "bft",
@@ -6763,7 +6814,8 @@
         "JO": [
             "ar",
             "apc",
-            "en"
+            "en",
+            "ady"
         ],
         "JP": [
             "ja",
@@ -7059,6 +7111,7 @@
             "ig",
             "yo",
             "ff",
+            "tiv",
             "efi",
             "ibb",
             "ha-arab",

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-01-30 20:18+0000\n"
-"PO-Revision-Date: 2026-02-02 12:32:09+0000\n"
+"PO-Revision-Date: 2026-02-09 12:31:29+0000\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1990,7 +1990,7 @@ msgstr "Referentie-praktijken"
 #. Translators: This text is found on the About page (https://wikipedialibrary.wmflabs.org/about/).
 #: TWLight/templates/about.html:206
 msgid "Citation practices vary by project and even by article. Generally, we support editors citing where they found information, in a form that allows others to check it for themselves. That often means providing both original source details as well as a link to the partner database in which the source was found."
-msgstr "Het toepassen van referenties verschilt per project en zelfs per artikel. Over het algemeen ondersteunen we redacteuren die vermelden waar ze informatie hebben gevonden, in een vorm die anderen in staat stelt deze zelf te controleren. Dat betekent vaak het verstrekken van zowel originele brongegevens als een link naar de partnerdatabase waarin de bron is gevonden."
+msgstr "Het toepassen van referenties verschilt per project en zelfs per pagina. Over het algemeen ondersteunen we redacteuren die vermelden waar ze informatie hebben gevonden, in een vorm die anderen in staat stelt deze zelf te controleren. Dat betekent vaak het verstrekken van zowel originele brongegevens als een koppeling naar de partnerdatabase waarin de bron is gevonden."
 
 #. Translators: This is the heading for a section on the About page (https://wikipedialibrary.wmflabs.org/about/).
 #. Translators: This link is at the bottom of every page and can be clicked by users to contact the wikipedia library team.

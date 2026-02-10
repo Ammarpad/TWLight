@@ -234,7 +234,7 @@ admin.site.register(AccessCode, AccessCodeAdmin)
 class SuggestionAdmin(admin.ModelAdmin):
     search_fields = ("suggested_company_name",)
     list_display = ("suggested_company_name", "description", "id")
-
+    exclude = ("upvoted_users",)
 
 admin.site.register(Suggestion, SuggestionAdmin)
 

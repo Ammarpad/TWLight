@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-01-30 20:18+0000\n"
-"PO-Revision-Date: 2026-02-02 12:32:07+0000\n"
+"PO-Revision-Date: 2026-02-12 12:32:13+0000\n"
 "Language: ia\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1101,13 +1101,13 @@ msgstr "Tu candidatura al Bibliotheca de Wikipedia"
 #: TWLight/emails/templates/emails/survey_active_user-body-html.html:5
 #, python-format
 msgid "<p>Hi,</p> <p>We are currently running a survey to understand how editors use The Wikipedia Library. According to our records, you have logged in to The Wikipedia Library at least once, so we would love to hear from you!</p> <p><a href=\"%(link)s\">%(link)s</a></p> <p>We really appreciate your feedback - this survey will help us understand how The Wikipedia Library is currently being used, and where it could use improvement. Your responses will directly impact how the Wikimedia Foundation prioritises technical and partnership work for this project.</p> <p>The survey should take 5-10 minutes to complete.</p> <p>If you would like to opt-out of being contacted with future Wikipedia Library surveys, please let us know by emailing wikipedialibrary@wikimedia.org and we will remove you from any future mailing.</p> <p>Thanks,</p> <p>The Wikipedia Library team</p>"
-msgstr ""
+msgstr "<p>Salute,</p> <p>Nos conduce actualmente un sondage pro comprender como le redactores usa Le Bibliotheca de Wikipedia. Secundo nostre registros, tu ha aperite session in Le Bibliotheca de Wikipedia al minus un vice, dunque nos volerea multo audir de te!</p> <p><a href=\"%(link)s\">%(link)s</a></p> <p>Nos appreciarea multo tu commentarios! Iste questionario nos adjutara a comprender como Le Bibliotheca de Wikipedia es actualmente utilisate e ubi meliorationes es necessari. Tu responsas habera un impacto directe super le maniera in que le Fundation Wikimedia priorisa le labor technic e collaborative pro iste projecto.</p> <p>Completar le sondage deberea prender inter 5 e 10 minutas.</p> <p>Si tu prefere non esser contactate pro futur sondages del Bibliotheca de Wikipedia, per favor informa nos per un message electronic a wikipedialibrary@wikimedia.org e nos te removera de omne correspondentia futur.</p> <p>Gratias,</p> <p>Le equipa del Bibliotheca de Wikipedia</p>"
 
 #. Translators: This email is sent to users when we invite them to respond to a survey. Don't translate Jinja variables in curly braces like link. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/survey_active_user-body-text.html:3
 #, python-format
 msgid "Hi, We are currently running a survey to understand how editors use The Wikipedia Library. According to our records, you have logged in to The Wikipedia Library at least once, so we would love to hear from you! %(link)s We really appreciate your feedback - this survey will help us understand how The Wikipedia Library is currently being used, and where it could use improvement. Your responses will directly impact how the Wikimedia Foundation prioritises technical and partnership work for this project. The survey should take 5-10 minutes to complete. If you would like to opt-out of being contacted with future Wikipedia Library surveys, please let us know by emailing wikipedialibrary@wikimedia.org and we will remove you from any future mailing. Thanks, The Wikipedia Library team"
-msgstr ""
+msgstr "Salute, Nos conduce actualmente un sondage pro comprender como le redactores usa Le Bibliotheca de Wikipedia. Secundo nostre registros, tu ha aperite session in Le Bibliotheca de Wikipedia al minus un vice, dunque nos volerea multo audir de te! %(link)s Nos appreciarea multo tu commentarios! Iste questionario nos adjutara a comprender como Le Bibliotheca de Wikipedia es actualmente utilisate e ubi meliorationes es necessari. Tu responsas habera un impacto directe super le maniera in que le Fundation Wikimedia priorisa le labor technic e collaborative pro iste projecto. Completar le sondage deberea prender inter 5 e 10 minutas. Si tu prefere non esser contactate pro futur sondages del Bibliotheca de Wikipedia, per favor informa nos per un message electronic a wikipedialibrary@wikimedia.org e nos te removera de omne correspondentia futur. Gratias, Le equipa del Bibliotheca de Wikipedia"
 
 #. Translators: This is the subject of an email sent to users when we invite them to respond to a survey. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #. Translators: email subject line

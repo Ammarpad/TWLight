@@ -236,6 +236,7 @@ class SuggestionAdmin(admin.ModelAdmin):
     list_display = ("suggested_company_name", "description", "id")
     exclude = ("upvoted_users",)
 
+
 admin.site.register(Suggestion, SuggestionAdmin)
 
 

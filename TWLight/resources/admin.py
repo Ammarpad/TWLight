@@ -235,6 +235,15 @@ class SuggestionAdmin(admin.ModelAdmin):
     search_fields = ("suggested_company_name",)
     list_display = ("suggested_company_name", "description", "id")
     exclude = ("upvoted_users",)
+    readonly_fields = ("upvoters_list",)
+
+    def upvoters_list(self, obj):
+        users = obj.upvoted_users.all()
+        if not users.exists():
+            return "No upvotes yet."
+        return "\n".join(f"{user.username} - {user.email}" for user in users)
+
+    upvoters_list.short_description = "Upvoted Users"
 
 
 admin.site.register(Suggestion, SuggestionAdmin)

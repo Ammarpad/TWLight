@@ -6,6 +6,7 @@
 			"Derugon",
 			"DreZhsh",
 			"Escargot bleu",
+			"Framawiki",
 			"Gomoko",
 			"Mahabarata",
 			"Melimeli",
@@ -123,7 +124,7 @@
 	"135_short_description": "<strong>Le Corriere della Sera</strong> est un quotidien d’actualités italien publié à Milan. C’est l’un des journaux les plus anciens et les plus lus d’Italie. Les Archives du Corriere della Sera fournissent l'accès à un siècle d'archives historiques.",
 	"136_short_description": "Les <strong>Archives du <em>Corriere della Sera</em></strong> (le courrier de la montagne) donnent accès à un siècle d’archives historique du <em>Corriere della Sera</em>, l’un des journaux d’actualité les plus anciens et les plus lus d’Italie.",
 	"137_short_description": "<strong><em>Wikilala</em></strong> est un référentiel numérique qui comprend plus de 109 000 documents sous forme imprimée, dont 45 000 journaux, 32 000 revues, 4 000 livres et 26 000 articles concernant l’histoire de l’Empire ottoman, depuis sa fondation jusqu’aux temps modernes.",
-	"138_short_description": "<strong><em>The British Newspaper Archive</em></strong> (archive des journaux britanniques) donne accès aux archives numérisées consultables des journaux britanniques et irlandais.",
+	"138_short_description": "<strong><em>The British Newspaper Archive</em></strong> (archive des journaux britanniques) donne accès aux archives numérisées consultables des journaux britanniques et irlandais. REMARQUE: il est nécessaire de créer un compte personnel sur le site, gratuit, pour accéder à l'ensemble des contenus.",
 	"139_short_description": "<strong><em>Findmypast</em></strong> (trouver mon passé) héberge des milliards d’enregistrements consultables d’informations de recensement, d’annuaire et d’enregistrements historiques.",
 	"140_short_description": "<strong><em>University of Michigan Press</em></strong> (presse de l’Université du Michigan) est un éditeur de livres évalués par des pairs axés sur les sciences politiques, les arts du spectacle, les études américaines, les études classiques et médiévales et les études asiatiques.",
 	"141_short_description": "<strong><em>ACLS Humanities Ebook Collection</em></strong> (collection de livres électroniques en sciences humaines d’ACLS) donne accès à des milliers de livres sélectionnés par des universitaires de l’<em>American Council of Learned Societies</em> (<em>ACLS</em>, Conseil américain des sociétés savantes), comme fondamentaux pour l’étude des sciences humaines et sociales. Les livres proviennent de plus de 125 éditeurs et sont tous évalués par des pairs.",
@@ -163,6 +164,9 @@
 	"174_short_description": "<strong>La Lettre</strong> est un quotidien couvrant les rouages du pouvoir dans les secteurs politique, économique et médiatique français.",
 	"175_short_description": "<strong>Glitz</strong> est un média d'investigation dédié au secteur du luxe. Chaque semaine, Glitz couvre les décisions stratégiques des familles, maisons et acteurs influents de l'écosystème du luxe. Cette collection donne accès à l'édition anglaise de Glitz.",
 	"176_short_description": "<strong>Glitz</strong> est un média d'investigation dédié au secteur du luxe. Chaque semaine, Glitz couvre les décisions stratégiques des familles, maisons et acteurs influents de l'écosystème du luxe. Cette collection donne accès à l'édition française de Glitz.",
+	"177_short_description": "<strong>e-Marefa</strong> est une base de données en arabe, contenant des périodiques académiques, des thèses et des livres numériques. Elle est considérée comme l'une des plus importantes bases de données mondiales d'information en arabe. Elle propose plus de 7 millions de références couvrant les plus grandes disciplines et domaines d'études.",
+	"178_short_description": "<strong>Inlibra</strong> propose des contenus académiques provenant d'une centaine d'éditeurs, avec plus de 50 000 livres électroniques et 120 revues académiques.",
 	"179_short_description": "<strong>Newslaundry</strong> est une plateforme indienne proposant des analyses, des reportages et des commentaires sur les médias.",
-	"180_short_description": "<strong>The News Minute</strong> est une plateforme d'information numérique qui traite de sujets en Inde, en particulier dans les cinq États du sud."
+	"180_short_description": "<strong>The News Minute</strong> est une plateforme d'information numérique qui traite de sujets en Inde, en particulier dans les cinq États du sud.",
+	"181_short_description": "<strong>Harvard Business Review</strong> est un magazine de leadership et de management publié par Harvard Business Publishing. Notre partenariat inclut un accès à son contenu principal, notamment aux archives, ainsi qu'aux données, aux visuels et aux newsletters Insider et Best of the Issue."
 }

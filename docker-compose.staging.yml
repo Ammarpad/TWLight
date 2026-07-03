@@ -26,11 +26,6 @@ services:
         required: true
       - path: .env
         required: true
-    environment:
-      # conf/staging.twlight.env sets DJANGO_DB_HOST=tasks.staging_db as
-      # a swarm-era workaround; plain compose resolves the db service
-      # as "db".
-      DJANGO_DB_HOST: db
     command: >
       bash -c "/app/bin/twlight_backup.sh && /app/bin/virtualenv_migrate.sh"
     restart: on-failure
@@ -48,8 +43,6 @@ services:
         required: true
       - path: .env
         required: true
-    environment:
-      DJANGO_DB_HOST: db
     restart: unless-stopped
   web:
     volumes:

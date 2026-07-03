@@ -10,17 +10,11 @@ services:
       - type: bind
         source: ./bin/twlight_mysql_init.sh
         target: /docker-entrypoint-initdb.d/twlight_mysql_init.sh
-    secrets:
-      - DJANGO_DB_NAME
-      - DJANGO_DB_USER
-      - DJANGO_DB_PASSWORD
-      - MYSQL_ROOT_PASSWORD
     environment:
       # https://mariadb.com/kb/en/mariadb-docker-environment-variables/
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/MYSQL_ROOT_PASSWORD
-      # Any non-empty value will do
+      # MYSQL_ROOT_PASSWORD comes from the overlay's env_file.
+      # Any non-empty value will do:
       - MARIADB_AUTO_UPGRADE=TRUE
-      # Any non-empty value will do
       - MARIADB_DISABLE_UPGRADE_BACKUP=TRUE
   twlight:
     build:
@@ -33,17 +27,6 @@ services:
       - type: bind
         source: ./media
         target: /app/media
-    secrets:
-      - DJANGO_DB_NAME
-      - DJANGO_DB_USER
-      - DJANGO_DB_PASSWORD
-      - DKIM_PRIVATE_KEY
-      - SECRET_KEY
-      - TWLIGHT_OAUTH_CONSUMER_KEY
-      - TWLIGHT_OAUTH_CONSUMER_SECRET
-      - TWLIGHT_EZPROXY_SECRET
-      - MW_API_EMAIL_USER
-      - MW_API_EMAIL_PASSWORD
     command: [ "/venv/bin/gunicorn", "TWLight.wsgi" ]
   web:
     image: quay.io/wikipedialibrary/nginx:latest-updated

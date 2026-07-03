@@ -8,12 +8,6 @@ then
     exit 1
 fi
 
-# Get secrets.
-if  [ ! -n "${SECRET_KEY+isset}" ]
-then
-    source bin/twlight_docker_secrets.sh
-fi
-
 # Virtualenv scripts need to be run as www
 if [ "${USER}" != "${TWLIGHT_UNIXNAME}" ]
 then

@@ -1,14 +1,9 @@
 ---
 services:
   db:
-    secrets: !reset null
     env_file:
       - path: .env
         required: true
-    environment:
-      # Base sets MYSQL_ROOT_PASSWORD_FILE for swarm; unset it so mariadb
-      # reads MYSQL_ROOT_PASSWORD directly from .env.
-      MYSQL_ROOT_PASSWORD_FILE: null
     restart: unless-stopped
   migrate:
     image: quay.io/wikipedialibrary/twlight:branch_production
@@ -37,7 +32,6 @@ services:
       - type: bind
         source: /usr/local/backup
         target: /app/backup
-    secrets: !reset null
     env_file:
       - path: ./conf/production.twlight.env
         required: true

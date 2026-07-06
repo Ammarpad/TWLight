@@ -1690,8 +1690,9 @@ class EditorModelTestCase(TestCase):
         platform, we shouldn't be overwriting it with a blank string.
         """
         new_editor = EditorFactory(wp_registered=None)
-        new_identity = FAKE_IDENTITY
-        new_global_userinfo = FAKE_GLOBAL_USERINFO
+        # Copy so we don't mutate the shared module-level fixtures (T352896).
+        new_identity = copy.copy(FAKE_IDENTITY)
+        new_global_userinfo = copy.copy(FAKE_GLOBAL_USERINFO)
         new_identity["sub"] = new_editor.wp_sub
         new_global_userinfo["id"] = new_identity["sub"]
 
@@ -1713,8 +1714,9 @@ class EditorModelTestCase(TestCase):
         platform, we shouldn't be overwriting it with a blank string.
         """
         new_editor = EditorFactory(wp_registered=None)
-        new_identity = FAKE_IDENTITY
-        new_global_userinfo = FAKE_GLOBAL_USERINFO
+        # Copy so we don't mutate the shared module-level fixtures (T352896).
+        new_identity = copy.copy(FAKE_IDENTITY)
+        new_global_userinfo = copy.copy(FAKE_GLOBAL_USERINFO)
         new_identity["sub"] = new_editor.wp_sub
         new_global_userinfo["id"] = new_identity["sub"]
 

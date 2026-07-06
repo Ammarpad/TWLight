@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-06-29 16:31+0000\n"
-"PO-Revision-Date: 2026-07-02 12:38:02+0000\n"
+"PO-Revision-Date: 2026-07-06 12:33:27+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ar\n"
@@ -313,7 +313,7 @@ msgstr "تاريخ تقديم الطلب"
 #. Translators: This labels the section of an application showing how many days it has been since the application was opened.
 #: TWLight/applications/templates/applications/application_evaluation.html:65
 msgid "Days open"
-msgstr "مفتوحة لأيامٍ عددها"
+msgstr "مفتوح لأيامٍ عددها"
 
 #. Translators: This labels the section of an application showing how many days it has been since the application was closed.
 #: TWLight/applications/templates/applications/application_evaluation.html:73
@@ -450,12 +450,12 @@ msgstr "تعليقات من المحرر"
 #. Translators: This is the title of the section of an application page which contains the Recent Applications made by the applicant in the last 90 days.
 #: TWLight/applications/templates/applications/application_evaluation.html:227
 msgid "Recent Applications (last 90 days)"
-msgstr "الطلبات الأخيرة (آخر 90 يومًا)"
+msgstr "الطلبات الأخيرة (آخر ٩٠ يومًا)"
 
 #. Translators: This text is shown to Coordinators when applicant has not made any application in the last 90 days.
 #: TWLight/applications/templates/applications/application_evaluation.html:264
 msgid "No applications were made in last 90 days by the applicant"
-msgstr "لم يقدم مقدم الطلب أية طلبات في الأيام التسعين (90) الأخيرة"
+msgstr "لم يتقدّم مقدّم الطلب بأي طلبات خلال الأيام التسعين الماضية"
 
 #. Translators: This is the title of the section of an application page which contains the comment thread between the user and account coordinator.
 #: TWLight/applications/templates/applications/application_evaluation.html:268
@@ -465,12 +465,12 @@ msgstr "نقاش"
 #. Translators: This labels the button which users click to send a typed comment.
 #: TWLight/applications/templates/applications/application_evaluation.html:289
 msgid "Add comment"
-msgstr "أضف تعليق"
+msgstr "أضف تعليقًا"
 
 #. Translators: On an application page, this text tells users that the comments posted on the application are visible to coordinators and the submitting user only.
 #: TWLight/applications/templates/applications/application_evaluation.html:297
 msgid "Comments are visible to all coordinators and to the editor who submitted this application."
-msgstr "يرى التعليقات كافة المنسقين والمحرر الذي قدم هذا الطلب."
+msgstr "التعليقات مرئية لجميع المنسّقين وللمحرّر الذي قدّم هذا الطلب."
 
 #. Translators: This is the title of the section of an application page which lists information about the user who submitted the application.
 #. Translators: On the page where coordinators can view data on applications to a partner they coordinate, this is a table column heading for the username.
@@ -483,19 +483,19 @@ msgstr "مستخدم"
 #. Translators: This is the title of the section of an application page which lists the history of status changes.
 #: TWLight/applications/templates/applications/application_evaluation.html:309
 msgid "Revision history"
-msgstr "تأريخ مراجعة"
+msgstr "تاريخ المراجعة"
 
 #. Translators: Applications have a revision history section. This message denotes when the application was submitted and who submitted it. Don't translate submit_user or review_date.
 #: TWLight/applications/templates/applications/application_evaluation.html:325
 #, python-format
 msgid "Submitted by %(submit_user)s on %(review_date)s"
-msgstr "قدم الطلب %(submit_user)s يوم %(review_date)s"
+msgstr "قدّم الطلب %(submit_user)s يوم %(review_date)s"
 
 #. Translators: Applications have a revision history section. This message denotes when the application was submitted for review. Don't translate review_date.
 #: TWLight/applications/templates/applications/application_evaluation.html:330
 #, python-format
 msgid "Submitted on %(review_date)s"
-msgstr "قدم الطلب يوم %(review_date)s"
+msgstr "قُدِّم الطلب يوم %(review_date)s"
 
 #. Translators: Applications have a revision history section. This message denotes when the application was reviewed and who reviewed it. Don't translate review_user or review_date.
 #: TWLight/applications/templates/applications/application_evaluation.html:341
@@ -507,7 +507,7 @@ msgstr "راجع الطلب %(review_user)s يوم %(review_date)s"
 #: TWLight/applications/templates/applications/application_evaluation.html:346
 #, python-format
 msgid "Reviewed on %(review_date)s"
-msgstr "روجع الطلب يوم %(review_date)s"
+msgstr "روجِع الطلب يوم %(review_date)s"
 
 #. Translators: Applications have a revision history section. If no previous versions of the application can be found, this message is shown.
 #: TWLight/applications/templates/applications/application_evaluation.html:359
@@ -516,28 +516,28 @@ msgstr "لا توجد إصدارات سابقة."
 
 #: TWLight/applications/templates/applications/application_list.html:37
 msgid "View applications which are..."
-msgstr "طالع الطلبات..."
+msgstr "عرض الطلبات والتي هي…"
 
 #: TWLight/applications/templates/applications/application_list.html:43
 msgid "Pending review"
-msgstr "في انتظار المراجعة"
+msgstr "قيد المراجعة"
 
 #: TWLight/applications/templates/applications/application_list.html:53
 msgid "Rejected"
-msgstr "المرفوضة"
+msgstr "مرفوض"
 
 #: TWLight/applications/templates/applications/application_list.html:58
 msgid "Sent"
-msgstr "المرسلة"
+msgstr "مرسَل"
 
 #: TWLight/applications/templates/applications/application_list.html:63
 msgid "Up for renewal"
-msgstr "التي آن أوان تجديدها"
+msgstr "قابل للتجديد"
 
 #. Translators: Coordinators can filter the page which shows a list of applications. This is the heading for the box where filters are selected.
 #: TWLight/applications/templates/applications/application_list.html:78
 msgid "Filter by..."
-msgstr "ترشيح الطلبات حسب..."
+msgstr "الترشيح حسب…"
 
 #. Translators: Coordinators can filter the page which shows a list of applications. This is the heading for the box showing a list of active filters.
 #: TWLight/applications/templates/applications/application_list.html:90

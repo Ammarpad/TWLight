@@ -10,7 +10,7 @@ fi
 
 PATH=/usr/local/bin:/usr/bin:/bin:/sbin:$PATH
 
-if ${TWLIGHT_HOME}/bin/virtualenv_wait_for_db.sh
+if ${TWLIGHT_HOME}/bin/wait_for_db.sh
 then
     echo "Dumping TWLight database"
     ## Perform sql-dump

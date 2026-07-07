@@ -27,7 +27,7 @@ services:
       - type: bind
         source: ./media
         target: /app/media
-    command: [ "/venv/bin/gunicorn", "TWLight.wsgi" ]
+    command: [ "gunicorn", "TWLight.wsgi" ]
   web:
     image: quay.io/wikipedialibrary/nginx:latest-updated
     depends_on:

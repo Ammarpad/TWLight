@@ -2,12 +2,6 @@
 #
 # If we have new string translations, runs Django translation processes
 
-# Environment variables should be loaded under all conditions.
-if [ -z "${TWLIGHT_HOME}" ]
-then
-    exit 1
-fi
-
 # By default we'll check unstaged changes, as this makes sense in development.
 # But we also need to be able to check the most recent commit for CICD.
 if [ "${1}" = "last-commit" ]

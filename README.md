@@ -6,7 +6,7 @@ The Wikipedia Library Card Platform app is available at http://wikipedialibrary.
 
 - Get Docker and Docker Compose
 - Fire up an empty TWLight instance `docker-compose build && docker-compose up`
-- Run migrations `docker-compose exec twlight /app/bin/virtualenv_migrate.sh`
+- Run migrations `docker-compose exec twlight /app/bin/migrate.sh`
 - See the thing running on [localhost](http://localhost/)
 - Get an interactive shell `docker-compose exec twlight bash`
 

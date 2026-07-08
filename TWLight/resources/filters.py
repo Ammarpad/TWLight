@@ -13,7 +13,7 @@ ACCESS_CHOICES = (
     # Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed immediately.
     (INSTANT, _("Instant access via the proxy")),
     # Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed only after additional steps, such as submitting an application and awaiting approval.
-    (MULTI_STEP, _("Access upon application")),
+    (MULTI_STEP, _("Application required")),
 )
 
 

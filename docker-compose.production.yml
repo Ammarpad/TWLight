@@ -1,4 +1,5 @@
 ---
+name: production
 services:
   db:
     env_file:

@@ -1,4 +1,5 @@
 ---
+name: local
 services:
   db:
     env_file:

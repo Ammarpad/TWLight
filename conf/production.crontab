@@ -1,0 +1,27 @@
+# TWLight production crontab. Install with `crontab conf/production.crontab`
+# as the service user. Runs against the rootless docker daemon owned by that
+# user; docker CLI picks up the daemon socket from the login environment.
+
+SHELL=/bin/bash
+PATH=/srv/TWLight/bin:/usr/bin:/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |    .------------- hour (0 - 23)
+# |    |    .---------- day of month (1 - 31)
+# |    |    |    .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |    |    |    |    .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |    |    |    |    |
+# *    *    *    *    *    command to be executed
+
+# from TWLight/crons.py -- run django_cron tasks
+# every 5 minutes
+*/5    *    *    *    *    docker exec -t $(docker ps -q -f name=production-twlight) python manage.py runcrons
+
+# from bin/deploy.sh -- pull image, git sync, restart stack if new image
+# every 5 minutes
+*/5    *    *    *    *    deploy.sh production
+
+# reclaim disk space previously used by docker
+# every 30 minutes
+*/30    *    *    *    *    docker system prune -a -f; docker volume rm $(docker volume ls -qf dangling=true)

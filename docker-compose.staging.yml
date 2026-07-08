@@ -1,4 +1,5 @@
 ---
+name: staging
 services:
   db:
     env_file:

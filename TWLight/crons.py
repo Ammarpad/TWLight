@@ -29,9 +29,7 @@ class BackupCronJob(CronJobBase):
             # Using check_output here because we want to log STDOUT.
             # To avoid logging for commands with sensitive output, import and use
             # subprocess.call instead of subprocess.check_output.
-            return check_output(
-                [settings.TWLIGHT_HOME + "/bin/twlight_backup.sh"], text=True
-            )
+            return check_output([settings.TWLIGHT_HOME + "/bin/backup.sh"], text=True)
         except Exception as e:
             capture_exception(e)
 

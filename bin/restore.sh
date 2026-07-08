@@ -21,7 +21,7 @@ tar -xvzf  "${restore_file}" -C "${TWLIGHT_HOME}" --no-overwrite-dir
 ## Import DB
 if "${TWLIGHT_HOME}/bin/wait_for_db.sh"
 then
-    "${TWLIGHT_HOME}/bin/twlight_mysqlimport.sh" "${TWLIGHT_HOME}/twlight.sql"
+    "${TWLIGHT_HOME}/bin/mysqlimport.sh" "${TWLIGHT_HOME}/twlight.sql"
 fi
 ## Don't leave an extra DB dump laying out.
 rm -f "${TWLIGHT_HOME}/twlight.sql"

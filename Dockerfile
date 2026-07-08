@@ -45,6 +45,6 @@ RUN cd /app/twlight_cssjanus/ && npm install
 COPY manage.py /app/manage.py
 
 # Configure static assets.
-RUN SECRET_KEY=twlight /app/bin/twlight_static.sh
+RUN SECRET_KEY=twlight /app/bin/static.sh
 
 EXPOSE 80

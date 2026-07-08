@@ -8,8 +8,8 @@ services:
         source: ./conf/db.cnf
         target: /etc/mysql/conf.d/db.cnf
       - type: bind
-        source: ./bin/twlight_mysql_init.sh
-        target: /docker-entrypoint-initdb.d/twlight_mysql_init.sh
+        source: ./bin/mysql_init.sh
+        target: /docker-entrypoint-initdb.d/mysql_init.sh
     environment:
       # https://mariadb.com/kb/en/mariadb-docker-environment-variables/
       # MYSQL_ROOT_PASSWORD comes from the overlay's env_file.

@@ -20,7 +20,7 @@ flock -n ${lockfile}
 
     ## Dump DB
 
-    source ${TWLIGHT_HOME}/bin/twlight_mysqldump.sh
+    source ${TWLIGHT_HOME}/bin/mysqldump.sh
 
     echo "Backing up database and media"
 

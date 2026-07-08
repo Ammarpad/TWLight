@@ -22,7 +22,7 @@ services:
       - path: .env
         required: true
     command: >
-      bash -c "/app/bin/twlight_backup.sh && /app/bin/migrate.sh"
+      bash -c "/app/bin/backup.sh && /app/bin/migrate.sh"
     restart: on-failure
   twlight:
     image: quay.io/wikipedialibrary/twlight:branch_production

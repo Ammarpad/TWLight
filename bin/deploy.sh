@@ -27,6 +27,9 @@ then
         git reset --hard origin
     fi
     git pull
+    # git pull refreshes conf/${env}.crontab in the checkout but not the
+    # installed crontab, so re-sync it here on real deploys.
+    crontab "conf/${env}.crontab"
     docker compose -f docker-compose.yml -f "docker-compose.${env}.yml" up -d
 elif echo "${pull}" | grep -q "Status: Image is up to date"
 then

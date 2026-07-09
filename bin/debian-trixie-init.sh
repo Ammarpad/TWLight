@@ -3,7 +3,7 @@ set -eo pipefail
 
 # Grab deploy metadata and fail early if we're missing something
 apt update
-apt install -y curl jq
+apt install -y cron curl jq
 
 metadata_url=http://169.254.169.254/openstack/2025-04-04/meta_data.json
 metadata=$(curl -fsS "${metadata_url}") || { echo "failed to fetch instance metadata from ${metadata_url}" >&2; exit 1; }

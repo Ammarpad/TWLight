@@ -52,3 +52,7 @@ done
 /usr/bin/dockerd-rootless-setuptool.sh install
 # Rootless mode: keep daemon running while logged out
 loginctl enable-linger "${project}"
+
+# Install the env crontab (auto-deploy + django-cron); cron reaches the
+# rootless daemon via the docker context the setuptool switched to above.
+crontab "/srv/${project}/conf/${env}.crontab"

@@ -1,0 +1,29 @@
+# TWLight staging crontab. Install with `crontab conf/staging.crontab`
+# as the service user. Cron doesn't source the login shell, so the docker
+# socket comes from the user's rootless docker context (~/.docker) and the
+# compose file set is pinned below rather than inherited from it.
+
+SHELL=/bin/bash
+PATH=/srv/TWLight/bin:/usr/bin:/bin
+COMPOSE_FILE=/srv/TWLight/docker-compose.yml:/srv/TWLight/docker-compose.staging.yml
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |    .------------- hour (0 - 23)
+# |    |    .---------- day of month (1 - 31)
+# |    |    |    .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |    |    |    |    .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |    |    |    |    |
+# *    *    *    *    *    command to be executed
+
+# from TWLight/crons.py -- run django_cron tasks
+# every 5 minutes
+*/5    *    *    *    *    docker compose exec -T twlight python manage.py runcrons
+
+# from bin/deploy.sh -- pull image, git sync, restart stack if new image
+# every 5 minutes
+*/5    *    *    *    *    deploy.sh staging
+
+# reclaim disk space previously used by docker
+# every 30 minutes
+*/30    *    *    *    *    docker system prune -a -f; docker volume rm $(docker volume ls -qf dangling=true)

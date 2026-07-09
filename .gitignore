@@ -1,6 +1,9 @@
 # Environment file
 .env
 
+# Load-test credentials, sourced by tests/locust/locustfile.py.
+tests/locust/wp_users.json
+
 # IDE stuff.
 .idea/
 

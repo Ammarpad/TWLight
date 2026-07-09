@@ -1,1 +1,0 @@
-bin/virtualenv_activate.sh

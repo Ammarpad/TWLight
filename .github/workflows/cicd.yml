@@ -24,15 +24,15 @@ jobs:
       - name: migrate
         run: >
           docker compose exec --no-TTY twlight
-          bin/virtualenv_migrate.sh
+          bin/migrate.sh
       - name: translate
         run: >
           docker compose exec --no-TTY twlight
-          bin/virtualenv_translate.sh last-commit
+          bin/translate.sh last-commit
       - name: test
         run: >
           docker compose exec --no-TTY twlight
-          bin/virtualenv_test.sh
+          bin/test.sh
       - name: deploy
         env:
           WIKIBOT_TOKEN: ${{secrets.WIKIBOT_TOKEN}}

@@ -10,12 +10,6 @@ then
     exit 1
 fi
 
-# Get secrets.
-if [ -z "${DJANGO_DB_PASSWORD}" ]
-then
-    source /app/bin/twlight_docker_secrets.sh
-fi
-
 PATH=/usr/local/bin:/usr/bin:/bin:/sbin:$PATH
 
 mysqlimport_file=${1}

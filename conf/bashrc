@@ -94,7 +94,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f bin/virtualenv_activate.sh ]
-then
-  source bin/virtualenv_activate.sh
+# Move to the project root when opening an interactive shell in the
+# container.
+if [ -n "${TWLIGHT_HOME}" ] && [ -d "${TWLIGHT_HOME}" ]; then
+    cd "${TWLIGHT_HOME}"
 fi

@@ -13,8 +13,11 @@ logger = logging.getLogger(__name__)
 # Wikimedia's User-Agent policy requires a descriptive User-Agent with contact
 # information; the generic Python-urllib default is blocked with HTTP 403.
 # https://meta.wikimedia.org/wiki/User-Agent_policy
-TWLIGHT_USER_AGENT = "TWLight/1.0 (https://wikipedialibrary.wmflabs.org/; {contact}) Python-urllib".format(
-    contact=os.environ.get("TWLIGHT_ERROR_MAILTO", "wikipedialibrary@wikimedia.org")
+# The environment (local/staging/production) is included so Wikimedia can
+# distinguish development and staging traffic from production.
+TWLIGHT_USER_AGENT = "TWLight/1.0 ({env}; https://wikipedialibrary.wmflabs.org/; {contact}) Python-urllib".format(
+    env=settings.TWLIGHT_ENV or "unknown",
+    contact=os.environ.get("TWLIGHT_ERROR_MAILTO", "wikipedialibrary@wikimedia.org"),
 )
 
 

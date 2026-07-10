@@ -10,6 +10,13 @@ from djmail import template_mail
 
 logger = logging.getLogger(__name__)
 
+# Wikimedia's User-Agent policy requires a descriptive User-Agent with contact
+# information; the generic Python-urllib default is blocked with HTTP 403.
+# https://meta.wikimedia.org/wiki/User-Agent_policy
+TWLIGHT_USER_AGENT = "TWLight/1.0 (https://wikipedialibrary.wmflabs.org/; {contact}) Python-urllib".format(
+    contact=os.environ.get("TWLIGHT_ERROR_MAILTO", "wikipedialibrary@wikimedia.org")
+)
+
 
 def editor_global_userinfo(wp_sub: int):
     """
@@ -63,7 +70,8 @@ def _get_user_info_request(wp_param_name: str, wp_param: str):
     query = "{endpoint}?action=query&meta=globaluserinfo&{wp_param_name}={wp_param}&guiprop=editcount|merged&format=json&formatversion=2".format(
         endpoint=endpoint, wp_param_name=wp_param_name, wp_param=wp_param
     )
-    return json.loads(urllib.request.urlopen(query).read())
+    request = urllib.request.Request(query, headers={"User-Agent": TWLIGHT_USER_AGENT})
+    return json.loads(urllib.request.urlopen(request).read())
 
 
 def editor_reg_date(identity: dict, global_userinfo: dict):

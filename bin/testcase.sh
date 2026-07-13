@@ -7,5 +7,5 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-DJANGO_LOG_LEVEL=CRITICAL DJANGO_SETTINGS_MODULE=TWLight.settings.local \
+DJANGO_LOG_LEVEL=CRITICAL TWLIGHT_ENV=test \
     coverage run --source TWLight manage.py test --parallel --keepdb --noinput --timing "$1" 2>&1

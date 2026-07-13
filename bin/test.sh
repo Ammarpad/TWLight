@@ -20,7 +20,7 @@ set -euo pipefail
         echo "No localization issues found"
 
         # Run test suite via coverage so we can get a report without having to run separate tests for it.
-        DJANGO_LOG_LEVEL=CRITICAL DJANGO_SETTINGS_MODULE=TWLight.settings.local \
+        DJANGO_LOG_LEVEL=CRITICAL TWLIGHT_ENV=test \
         coverage run manage.py test --keepdb --noinput --parallel --timing
         coverage report
     else

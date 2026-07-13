@@ -44,7 +44,9 @@ COPY twlight_cssjanus /app/twlight_cssjanus
 RUN cd /app/twlight_cssjanus/ && npm install
 COPY manage.py /app/manage.py
 
-# Configure static assets.
-RUN SECRET_KEY=twlight /app/bin/static.sh
+# Configure static assets. TWLIGHT_ENV is required now that manage.py refuses
+# to guess a settings module; production is what the build used implicitly
+# before, so collectstatic output stays identical.
+RUN SECRET_KEY=twlight TWLIGHT_ENV=production /app/bin/static.sh
 
 EXPOSE 80

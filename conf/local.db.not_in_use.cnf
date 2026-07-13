@@ -1,3 +1,0 @@
-[mysqld]
-# Allows SMB binding of data volume on Windows hosts.
-innodb_flush_method=O_DSYNC

@@ -11,6 +11,9 @@ project=$(jq --raw-output '.meta.project // empty' <<< "${metadata}")
 env=$(jq --raw-output '.meta.env // empty' <<< "${metadata}")
 : "${project:?meta.project not set in instance metadata}"
 : "${env:?meta.env not set in instance metadata}"
+# Unix account/group name is lowercased; the checkout dir and GitHub URL
+# keep the project's original casing (github.com is case-insensitive).
+user="${project,,}"
 
 # Add swap
 fallocate -l 8G /swapfile
@@ -57,22 +60,22 @@ mkdir -m 0755 -p /usr/local/lib/sysctl.d
 echo 'kernel.unprivileged_userns_clone = 1' >/usr/local/lib/sysctl.d/99-userns-clone.conf
 
 # Rootless mode: create shared shell account
-adduser --quiet --disabled-password --gecos "" "${project}" || true
+adduser --quiet --disabled-password --gecos "" "${user}" || true
 
 # Clone repo and assign ownership to service account
 [ -d "/srv/${project}/.git" ] || git clone "https://github.com/WikipediaLibrary/${project}.git" "/srv/${project}"
 cd "/srv/${project}" || exit
 git checkout "${env}"
-chown -R "${project}:${project}" "/srv/${project}"
+chown -R "${user}:${user}" "/srv/${project}"
 
 # make docker data volume mountpoint
-mkdir -p /usr/local/docker-data && chown "${project}:${project}" /usr/local/docker-data
+mkdir -p /usr/local/docker-data && chown "${user}:${user}" /usr/local/docker-data
 # make backup volume mountpoint
-mkdir -p /usr/local/backup && chown "${project}:${project}" /usr/local/backup
+mkdir -p /usr/local/backup && chown "${user}:${user}" /usr/local/backup
 
 # Rootless mode: run commands as service account
-XDG_RUNTIME_DIR=/run/user/$(id -u "${project}")
-sudo -i -u "${project}" bash <<- EOF
+XDG_RUNTIME_DIR=/run/user/$(id -u "${user}")
+sudo -i -u "${user}" bash <<- EOF
 	#  symlink to project daemon.json
 	mkdir -p ~/.config/docker
 	ln -sf /srv/${project}/daemon.json ~/.config/docker/daemon.json

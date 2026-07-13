@@ -14,7 +14,12 @@ fi
 env=${1}
 tag="branch_${env}"
 
-cd /srv/TWLight || { echo "Repo missing at /srv/TWLight"; exit 1; }
+# Resolve the repo root from this script's own path rather than a fixed
+# /srv/TWLight, so deploy.sh itself carries no hardcoded checkout path.
+cd "$(dirname "$(readlink -f "$0")")/.." || { echo "can't locate repo root from $0"; exit 1; }
+# Fail loud if that landed anywhere but the checkout (an empty readlink
+# collapses to cd ./..) rather than deploying against the wrong tree.
+[ -f docker-compose.yml ] || { echo "deploy.sh: not at repo root ($(pwd))"; exit 1; }
 
 pull=$(docker pull "quay.io/wikipedialibrary/twlight:${tag}")
 

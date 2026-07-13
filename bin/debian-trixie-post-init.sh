@@ -13,10 +13,12 @@ project=$(jq --raw-output '.meta.project // empty' <<< "${metadata}")
 env=$(jq --raw-output '.meta.env // empty' <<< "${metadata}")
 : "${project:?meta.project not set in instance metadata}"
 : "${env:?meta.env not set in instance metadata}"
+# Account name is the lowercased project; the checkout dir keeps its casing.
+user="${project,,}"
 
-if [ "$project" != "$USER" ]
+if [ "$user" != "$USER" ]
 then
-	echo "must be run as ${project} (currently ${USER})" >&2 && exit 1
+	echo "must be run as ${user} (currently ${USER})" >&2 && exit 1
 fi
 
 # Sanity-check docker's data-root and the backup dir before starting the
@@ -51,7 +53,7 @@ done
 # install dockerd rootless for service account
 /usr/bin/dockerd-rootless-setuptool.sh install
 # Rootless mode: keep daemon running while logged out
-loginctl enable-linger "${project}"
+loginctl enable-linger "${user}"
 
 # Install the env crontab (auto-deploy + django-cron); cron reaches the
 # rootless daemon via the docker context the setuptool switched to above.

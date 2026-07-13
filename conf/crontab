@@ -1,0 +1,33 @@
+# TWLight crontab. Rendered and installed by the cloudvps-compose-deploy
+# toolkit, which substitutes DEPLOY_ROOT (the checkout), ENV (the environment /
+# git branch), and TOOLKIT_BIN (where deploy.sh lives). Cron doesn't source the
+# login shell, so the docker socket comes from the user's rootless docker
+# context (~/.docker) and the compose file set is pinned below rather than
+# inherited from it.
+
+SHELL=/bin/bash
+PATH=${TOOLKIT_BIN}:/usr/bin:/bin
+DEPLOY_ROOT=${DEPLOY_ROOT}
+TWLIGHT_ENV=${ENV}
+COMPOSE_FILE=${DEPLOY_ROOT}/docker-compose.yml:${DEPLOY_ROOT}/docker-compose.deploy.yml
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |    .------------- hour (0 - 23)
+# |    |    .---------- day of month (1 - 31)
+# |    |    |    .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |    |    |    |    .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |    |    |    |    |
+# *    *    *    *    *    command to be executed
+
+# from TWLight/crons.py: run django_cron tasks
+# every 5 minutes
+*/5    *    *    *    *    docker compose exec -T twlight python manage.py runcrons
+
+# from the toolkit's deploy.sh: git sync + redeploy when the target changes
+# every 5 minutes
+*/5    *    *    *    *    deploy.sh ${ENV}
+
+# reclaim disk space previously used by docker
+# every 30 minutes
+*/30    *    *    *    *    docker system prune -a -f; docker volume rm $(docker volume ls -qf dangling=true)

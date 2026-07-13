@@ -1,7 +1,0 @@
-{
-  "data-root": "/usr/local/docker-data",
-  "log-driver": "journald",
-  "log-opts": {
-    "mode": "non-blocking"
-  }
-}

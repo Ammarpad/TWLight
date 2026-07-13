@@ -14,9 +14,9 @@ if ${TWLIGHT_HOME}/bin/wait_for_db.sh
 then
     echo "Dumping TWLight database"
     ## Perform sql-dump
-    bash -c "mysqldump -h '${DJANGO_DB_HOST}' -u '${DJANGO_DB_USER}' -p'${DJANGO_DB_PASSWORD}' '${DJANGO_DB_NAME}' > '${TWLIGHT_MYSQLDUMP_DIR}/twlight.sql'"
+    bash -c "mysqldump -h '${DJANGO_DB_HOST}' -u '${DJANGO_DB_USER}' -p'${DJANGO_DB_PASSWORD}' '${DJANGO_DB_NAME}' > '${TWLIGHT_BACKUP_DIR}/twlight.sql'"
     ## Root only
-    chmod 0600 "${TWLIGHT_MYSQLDUMP_DIR}/twlight.sql"
+    chmod 0600 "${TWLIGHT_BACKUP_DIR}/twlight.sql"
     echo "Finished dumping TWLight database."
 else
     exit 1

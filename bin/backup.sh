@@ -16,6 +16,9 @@ flock -n ${lockfile}
 
     PATH=/usr/local/bin:/usr/bin:/bin:/sbin:$PATH
 
+    : "${TWLIGHT_BACKUP_KEEP:=30}"
+    : "${TWLIGHT_BACKUP_DAYS:=30}"
+
     date=$(date +'%Y%m%d%H%M')
 
     ## Dump DB
@@ -30,10 +33,21 @@ flock -n ${lockfile}
     ## Root only
     chmod 0600 "${TWLIGHT_BACKUP_DIR}/${date}.tar.gz"
 
+    ## The uncompressed dump was only scaffolding for the tarball; drop it so a
+    ## full dump doesn't linger on the backup volume between runs.
+    rm -f "${TWLIGHT_BACKUP_DIR}/twlight.sql"
+
     echo "Finished TWLight backup."
 
-    # Retain backups for 30 days.
-    find "${TWLIGHT_BACKUP_DIR}" -name "*.tar.gz" -mtime +30 -delete || :
+    ## Prune backups past either limit: older than TWLIGHT_BACKUP_DAYS days, or
+    ## beyond the newest TWLIGHT_BACKUP_KEEP. Whichever bites first: count where a
+    ## box redeploys often, age otherwise.
+    find "${TWLIGHT_BACKUP_DIR}" -maxdepth 1 -name "*.tar.gz" -mtime "+${TWLIGHT_BACKUP_DAYS}" -delete || :
+    mapfile -t stale < <(
+        find "${TWLIGHT_BACKUP_DIR}" -maxdepth 1 -name "*.tar.gz" -printf "%T@ %p\n" \
+            | sort -rn | tail -n +$((TWLIGHT_BACKUP_KEEP + 1)) | cut -d' ' -f2-
+    )
+    [ "${#stale[@]}" -eq 0 ] || rm -f "${stale[@]}"
 
-    echo "Removed backups created 30 days ago or more."
+    echo "Kept the newest ${TWLIGHT_BACKUP_KEEP} backups within ${TWLIGHT_BACKUP_DAYS} days."
 } {lockfile}>&-

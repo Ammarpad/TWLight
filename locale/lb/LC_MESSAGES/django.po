@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-07-10 13:54+0000\n"
-"PO-Revision-Date: 2026-07-13 12:32:08+0000\n"
+"PO-Revision-Date: 2026-07-20 12:51:06+0000\n"
 "Language: lb\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2325,7 +2325,7 @@ msgstr "Meng Demandë weisen >"
 #: TWLight/users/templates/users/collections_section.html:54
 #: TWLight/users/templates/users/collections_section.html:82
 msgid "Expired"
-msgstr ""
+msgstr "Ofgelaf"
 
 #. Translators: Users viewing their own profile can click this button to go to the browse partners page.
 #: TWLight/users/templates/users/editor_detail.html:15
@@ -2593,7 +2593,7 @@ msgstr ""
 #. Translators: On the page listing applications, this text labels an area where users can either request for renewals, or be shown a message of why they cannot renew.
 #: TWLight/users/templates/users/my_applications.html:73
 msgid "Has your account expired?"
-msgstr ""
+msgstr "Ass Äre Kont ofgelaf?"
 
 #. Translators: On the page listing applications, this text labels a link which users can click to request a renewal of their application.
 #: TWLight/users/templates/users/my_applications.html:76

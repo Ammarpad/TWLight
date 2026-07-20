@@ -30,4 +30,6 @@ COMPOSE_FILE=${DEPLOY_ROOT}/docker-compose.yml:${DEPLOY_ROOT}/docker-compose.dep
 
 # reclaim disk space previously used by docker
 # every 30 minutes
-*/30    *    *    *    *    docker system prune -a -f; docker volume rm $(docker volume ls -qf dangling=true)
+# until=15m spares anything the */5 deploy just built or pulled, so a prune
+# firing mid-deploy can't drop an image or container still coming up.
+*/30    *    *    *    *    docker system prune -a -f --filter "until=15m"; docker volume rm $(docker volume ls -qf dangling=true)

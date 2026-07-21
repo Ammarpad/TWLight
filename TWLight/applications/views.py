@@ -1383,7 +1383,7 @@ class RenewApplicationView(SelfOnly, ToURequired, DataProcessingRequired, FormVi
         renewal = application.renew()
 
         # Requesting Renewing invalidates the my_library cache
-        # This happens regardless of sucess so that the message will be displayed
+        # This happens regardless of success so that the message will be displayed
         self.request.user.userprofile.delete_my_library_cache()
 
         if not renewal:

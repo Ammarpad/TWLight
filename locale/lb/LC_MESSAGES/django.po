@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-07-21 12:05+0000\n"
-"PO-Revision-Date: 2026-07-23 12:37:39+0000\n"
+"PO-Revision-Date: 2026-07-27 12:39:55+0000\n"
 "Language: lb\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1624,7 +1624,7 @@ msgstr "Plaz"
 #: TWLight/resources/templates/resources/partner_detail_timeline.html:210
 #: TWLight/users/templates/users/preferences.html:57
 msgid "Terms of use"
-msgstr ""
+msgstr "Benotzungsbedingungen"
 
 #. Translators: If a partner has no Terms of Use listed, this message is shown in the Terms of Use field (e.g. https://wikipedialibrary.wmflabs.org/partners/12/).
 #: TWLight/resources/templates/resources/partner_detail_timeline.html:213

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-07-21 12:05+0000\n"
-"PO-Revision-Date: 2026-07-27 12:39:55+0000\n"
+"PO-Revision-Date: 2026-07-30 12:29:09+0000\n"
 "Language: lb\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -528,7 +528,7 @@ msgstr "Keng"
 #. Translators: On the page which shows a list of applications, this text shows next to the page navigation buttons.
 #: TWLight/applications/templates/applications/application_list.html:113
 msgid "Page navigation"
-msgstr ""
+msgstr "Säitennavigatioun"
 
 #: TWLight/applications/templates/applications/application_list.html:117
 #: TWLight/applications/templates/applications/application_list.html:124

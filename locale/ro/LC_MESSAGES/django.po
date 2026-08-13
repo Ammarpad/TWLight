@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 #
 # Author: Andreyyshore
+# Author: Blaséd
 # Author: Cezar
 # Author: DDPAT
 # Author: Dimitrie569
@@ -22,7 +23,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-07-21 12:05+0000\n"
-"PO-Revision-Date: 2026-07-23 12:37:41+0000\n"
+"PO-Revision-Date: 2026-08-13 12:41:43+0000\n"
 "Language: ro\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1119,7 +1120,7 @@ msgstr "Aplicația dvs. pentru Biblioteca Wikipedia"
 #: TWLight/emails/templates/emails/survey_active_user-body-html.html:5
 #, python-format
 msgid "<p>Hi,</p> <p>We are currently running a survey to understand how editors use The Wikipedia Library. According to our records, you have logged in to The Wikipedia Library at least once, so we would love to hear from you!</p> <p><a href=\"%(link)s\">%(link)s</a></p> <p>We really appreciate your feedback - this survey will help us understand how The Wikipedia Library is currently being used, and where it could use improvement. Your responses will directly impact how the Wikimedia Foundation prioritises technical and partnership work for this project.</p> <p>The survey should take 5-10 minutes to complete.</p> <p>If you would like to opt-out of being contacted with future Wikipedia Library surveys, please let us know by emailing wikipedialibrary@wikimedia.org and we will remove you from any future mailing.</p> <p>Thanks,</p> <p>The Wikipedia Library team</p>"
-msgstr ""
+msgstr "<p>Bună ziua,</p><p> În prezent, derulăm un sondaj pentru a înțelege cum folosesc editorii Biblioteca Wikipedia. Conform înregistrărilor noastre, v-ați conectat la Biblioteca Wikipedia cel puțin o dată, așa că ne-ar plăcea să auzim părerea dumneavoastră!</p><p> <a href=\"<span class=\"notranslate\" translate=\"no\">%(link)s\">% (link)s</a></p><p> Apreciem foarte mult feedback-ul dumneavoastră - acest sondaj ne va ajuta să înțelegem cum este utilizată în prezent Biblioteca Wikipedia și unde ar putea fi îmbunătățită. Răspunsurile dumneavoastră vor avea un impact direct asupra modului în care Fundația Wikimedia acordă prioritate muncii tehnice și a parteneriatelor pentru acest proiect.</p><p> Completarea sondajului ar trebui să dureze 5-10 minute.</p><p> Dacă doriți să renunțați la a fi contactat în cadrul viitoarelor sondaje Wikipedia Library, vă rugăm să ne anunțați trimițând un e-mail la adresa wikipedialibrary@wikimedia.org și vă vom elimina din orice corespondență viitoare.</p><p> Mulţumesc,</p><p> Echipa Bibliotecii Wikipedia</p>"
 
 #. Translators: This email is sent to users when we invite them to respond to a survey. Don't translate Jinja variables in curly braces like link. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/survey_active_user-body-text.html:3
@@ -1131,9 +1132,8 @@ msgstr ""
 #. Translators: email subject line
 #: TWLight/emails/templates/emails/survey_active_user-subject.html:4
 #: TWLight/users/management/commands/survey_active_users.py:118
-#, fuzzy
 msgid "The Wikipedia Library needs your help!"
-msgstr "casa Biblioteca Wikipedia"
+msgstr "Biblioteca Wikipedia are nevoie de ajutorul tău!"
 
 #. Translators: This email is sent to users when they have an account that is soon to expire. Don't translate Jinja variables in curly braces like partner_name or partner_link; don't translate html tags either. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/user_renewal_notice-body-html.html:5

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
-"POT-Creation-Date: 2026-07-21 12:04+0000\n"
+"POT-Creation-Date: 2026-08-14 14:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1031,8 +1031,8 @@ msgid ""
 "<p>Dear %(user)s,</p> <p>Thank you for applying for access to %(partner)s "
 "resources through The Wikipedia Library. We are happy to inform you that "
 "your application has been approved.</p> <p>%(user_instructions)s</p> <p>You "
-"can view the collections you're authorized to access at My Library: "
-"%(link)s</p> <p>Cheers!</p> <p>The Wikipedia Library</p>"
+"can view the collections you're authorized to access on your My Library "
+"page: %(link)s</p> <p>Cheers!</p> <p>The Wikipedia Library</p>"
 msgstr ""
 
 #. Translators: This email is sent to users when their application is approved. Don't translate Jinja variables in curly braces like user or partner. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
@@ -1042,8 +1042,8 @@ msgid ""
 "Dear %(user)s, Thank you for applying for access to %(partner)s resources "
 "through The Wikipedia Library. We are happy to inform you that your "
 "application has been approved. %(user_instructions)s You can view the "
-"collections you're authorized to access at My Library: %(link)s Cheers! The "
-"Wikipedia Library"
+"collections you're authorized to access on your My Library page: %(link)s "
+"Cheers! The Wikipedia Library"
 msgstr ""
 
 #. Translators: This is the subject of an email which is sent to users when their application has been approved. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
@@ -1354,12 +1354,12 @@ msgstr ""
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed immediately.
 #: TWLight/resources/filters.py:14
-msgid "Instant (proxy) access"
+msgid "Instant access via the proxy"
 msgstr ""
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed only after additional steps, such as submitting an application and awaiting approval.
 #: TWLight/resources/filters.py:16
-msgid "Multi-step access"
+msgid "Application required"
 msgstr ""
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this text is shown to indicate how many subject areas a collection covers.
@@ -1387,7 +1387,7 @@ msgstr ""
 msgid "All languages"
 msgstr ""
 
-#. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this text is shown to indicate if a collection is searchable.
+#. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this text is shown to indicate if a collection is searchable in the "global search bar" present in the top of the Library website.
 #. Translators: This indicates that a collection included in the centralized search tool (https://meta.wikimedia.org/wiki/Talk:Library_Card_platform/Search)
 #. Translators: Hovertext for an icon which indicates whether a collection is searchable or not.
 #: TWLight/resources/filters.py:78 TWLight/resources/models.py:285
@@ -1535,7 +1535,7 @@ msgstr ""
 
 #: TWLight/resources/templates/resources/filter_section.html:54
 #: TWLight/users/templates/users/filter_section.html:82
-msgid "Filter collections"
+msgid "Search collection descriptions"
 msgstr ""
 
 #. Translators: This is the title of the form where coordiantors can merge partner suggestions.

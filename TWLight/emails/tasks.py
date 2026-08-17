@@ -24,6 +24,7 @@ settings.DJMAIL_REAL_BACKEND.
 
 from djmail import template_mail
 from djmail.template_mail import MagicMailBuilder, InlineCSSTemplateMail
+from concurrent.futures import Future
 import logging
 import os
 from uuid import uuid4
@@ -164,6 +165,10 @@ def send_user_renewal_notice_emails(sender, **kwargs):
     """
     Any time the related managment command is run, this sends email to
     users who have authorizations that are soon to expire.
+
+    Returns True only if the email was really sent. The caller uses this
+    result. It must not mark the authorization as reminded after a failed
+    send (T407250).
     """
     user_wp_username = kwargs["user_wp_username"]
     user_email = kwargs["user_email"]
@@ -176,7 +181,7 @@ def send_user_renewal_notice_emails(sender, **kwargs):
 
     email = UserRenewalNotice()
 
-    email.send(
+    result = email.send(
         user_email,
         {
             "user": user_wp_username,
@@ -185,6 +190,21 @@ def send_user_renewal_notice_emails(sender, **kwargs):
             "partner_link": partner_link,
         },
     )
+
+    # The async back-end returns a Future and sends in a worker thread.
+    # Wait for the result. Then we know if the send was a success.
+    # A synchronous back-end returns the sent count and does not use a Future.
+    if isinstance(result, Future):
+        try:
+            result = result.result()
+        except Exception:
+            logger.exception(
+                "Renewal notice email failed to send for user %s.",
+                user_wp_username,
+            )
+            return False
+
+    return bool(result)
 
 
 def send_survey_active_user_email(connection=email_connection(), **kwargs):

@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import logging
 
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
@@ -9,6 +10,8 @@ from TWLight.applications.models import Application
 from TWLight.resources.models import Partner
 from TWLight.users.signals import Notice
 from TWLight.users.models import Authorization, get_company_name, Editor
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -59,15 +62,34 @@ class Command(BaseCommand):
         for authorization_object in expiring_authorizations.exclude(
             pk__in=no_email_list
         ):
-            Notice.user_renewal_notice.send(
-                sender=self.__class__,
-                user_wp_username=authorization_object.user.editor.wp_username,
-                user_email=authorization_object.user.email,
-                user_lang=authorization_object.user.userprofile.lang,
-                partner_name=get_company_name(authorization_object),
-                partner_link=reverse("users:my_library"),
-            )
+            try:
+                responses = Notice.user_renewal_notice.send(
+                    sender=self.__class__,
+                    user_wp_username=authorization_object.user.editor.wp_username,
+                    user_email=authorization_object.user.email,
+                    user_lang=authorization_object.user.userprofile.lang,
+                    partner_name=get_company_name(authorization_object),
+                    partner_link=reverse("users:my_library"),
+                )
+            except Exception:
+                # Do not stop the batch if one send fails. Do not mark the
+                # authorization. The next run tries again.
+                logger.exception(
+                    "Failed to send renewal notice for authorization %s.",
+                    authorization_object.pk,
+                )
+                continue
 
-            # Record that we sent the email so that we only send one.
-            authorization_object.reminder_email_sent = True
-            authorization_object.save()
+            # Record that we sent the email so that we only send one. Mark the
+            # authorization only if the email was really sent. If we mark it
+            # after a failed send, the user never gets a reminder (T407250).
+            email_sent = any(response for receiver, response in responses)
+            if email_sent:
+                authorization_object.reminder_email_sent = True
+                authorization_object.save()
+            else:
+                logger.warning(
+                    "Renewal notice was not sent for authorization %s. "
+                    "reminder_email_sent stays False for a retry.",
+                    authorization_object.pk,
+                )

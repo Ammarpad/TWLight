@@ -647,6 +647,54 @@ class UserRenewalNoticeTest(TestCase):
         call_command("user_renewal_notice")
         self.assertEqual(len(mail.outbox), 1)
 
+    @patch("TWLight.emails.tasks.UserRenewalNotice.send", return_value=0)
+    def test_user_renewal_notice_not_marked_when_send_fails(self, mock_send):
+        """
+        Per T407250, if the email does not actually send, we must not mark
+        reminder_email_sent. Otherwise the user never gets a reminder and the
+        authorization is skipped forever.
+        """
+        call_command("user_renewal_notice")
+
+        # We tried to send.
+        self.assertTrue(mock_send.called)
+
+        # The send failed, so the flag stays False for a retry.
+        self.authorization.refresh_from_db()
+        self.assertFalse(self.authorization.reminder_email_sent)
+
+    @patch("TWLight.emails.tasks.UserRenewalNotice.send", return_value=0)
+    def test_user_renewal_notice_retries_after_failed_send(self, mock_send):
+        """
+        A failed send must leave the authorization eligible. A later run, when
+        sending works again, then sends the email and marks the flag.
+        """
+        # First run fails.
+        call_command("user_renewal_notice")
+        self.authorization.refresh_from_db()
+        self.assertFalse(self.authorization.reminder_email_sent)
+
+        # Now sending works. The authorization is still eligible.
+        mock_send.return_value = 1
+        call_command("user_renewal_notice")
+        self.authorization.refresh_from_db()
+        self.assertTrue(self.authorization.reminder_email_sent)
+
+    @patch(
+        "TWLight.emails.tasks.UserRenewalNotice.send",
+        side_effect=Exception("simulated send failure"),
+    )
+    def test_user_renewal_notice_batch_survives_send_exception(self, mock_send):
+        """
+        If one send raises, the command must not crash and must not mark the
+        authorization. The next run tries again.
+        """
+        # The command must not raise.
+        call_command("user_renewal_notice")
+
+        self.authorization.refresh_from_db()
+        self.assertFalse(self.authorization.reminder_email_sent)
+
 
 class CoordinatorReminderEmailTest(TestCase):
     @classmethod

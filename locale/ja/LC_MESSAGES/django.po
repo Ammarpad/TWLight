@@ -15,6 +15,7 @@
 # Author: MuratTheTurkish
 # Author: Omotecho
 # Author: Otokoume
+# Author: RhAnish
 # Author: Sabelöga
 # Author: SaldırganSincap
 # Author: SawaTszm
@@ -32,7 +33,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-08-18 17:10+0000\n"
-"PO-Revision-Date: 2026-08-20 12:38:44+0000\n"
+"PO-Revision-Date: 2026-08-24 12:30:51+0000\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1382,7 +1383,7 @@ msgstr "絞り込み"
 #: TWLight/resources/templates/resources/filter_section.html:54
 #: TWLight/users/templates/users/filter_section.html:82
 msgid "Search collection descriptions"
-msgstr ""
+msgstr "コレクションの説明で検索"
 
 #. Translators: This is the title of the form where coordiantors can merge partner suggestions.
 #: TWLight/resources/templates/resources/merge_suggestion.html:34

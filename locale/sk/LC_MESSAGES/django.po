@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-08-18 17:10+0000\n"
-"PO-Revision-Date: 2026-08-20 12:38:47+0000\n"
+"PO-Revision-Date: 2026-08-24 12:30:55+0000\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -954,15 +954,15 @@ msgstr "Váš prístupový kód do Knižnice Wikipédie"
 
 #. Translators: This email is sent to users when their application is approved. Don't translate Jinja variables in curly braces like user or partner; don't translate html tags either. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-body-html.html:5
-#, fuzzy, python-format
+#, python-format
 msgid "<p>Dear %(user)s,</p> <p>Thank you for applying for access to %(partner)s resources through The Wikipedia Library. We are happy to inform you that your application has been approved.</p> <p>%(user_instructions)s</p> <p>You can view the collections you're authorized to access on your My Library page: %(link)s</p> <p>Cheers!</p> <p>The Wikipedia Library</p>"
-msgstr "<p>Vážený/á %(user)s,</p> <p>ďakujeme, že ste požiadali o prístup k zdrojom %(partner)s prostredníctvom Knižnice Wikipédie. S potešením vám oznamujeme, že vaša žiadosť bola schválená.</p> <p>%(user_instructions)s</p> <p>Zbierky, ku ktorým máte oprávnený prístup, si môžete pozrieť v sekcii Moja knižnica: %(link)s</p> <p>S pozdravom,</p> <p>Knižnica Wikipédie</p>"
+msgstr "<p>Vážený/á %(user)s,</p> <p>ďakujeme, že ste požiadali o prístup k zdrojom %(partner)s prostredníctvom Knižnice Wikipédie. S potešením vám oznamujeme, že vaša žiadosť bola schválená.</p> <p>%(user_instructions)s</p> <p>Zbierky, ku ktorým máte oprávnený prístup, si môžete pozrieť na svojej stránke Moja knižnica: %(link)s</p> <p>S pozdravom,</p> <p>Knižnica Wikipédie</p>"
 
 #. Translators: This email is sent to users when their application is approved. Don't translate Jinja variables in curly braces like user or partner. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-body-text.html:3
-#, fuzzy, python-format
+#, python-format
 msgid "Dear %(user)s, Thank you for applying for access to %(partner)s resources through The Wikipedia Library. We are happy to inform you that your application has been approved. %(user_instructions)s You can view the collections you're authorized to access on your My Library page: %(link)s Cheers! The Wikipedia Library"
-msgstr "Vážený/á %(user)s, ďakujeme, že ste požiadali o prístup k zdrojom %(partner)s prostredníctvom Knižnice Wikipédie. S potešením vám oznamujeme, že vaša žiadosť bola schválená. %(user_instructions)s Zbierky, ku ktorým máte oprávnený prístup, si môžete pozrieť v sekcii Moja knižnica: %(link)s S pozdravom! Knižnica Wikipédie"
+msgstr "Vážený/á %(user)s, ďakujeme, že ste požiadali o prístup k zdrojom %(partner)s prostredníctvom Knižnice Wikipédie. S potešením vám oznamujeme, že vaša žiadosť bola schválená. %(user_instructions)s Zbierky, ku ktorým máte oprávnený prístup, si môžete pozrieť na svojej stránke Moja knižnica: %(link)s S pozdravom, Knižnica Wikipédie"
 
 #. Translators: This is the subject of an email which is sent to users when their application has been approved. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-subject.html:4
@@ -1189,13 +1189,12 @@ msgstr "Hľadať"
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed immediately.
 #: TWLight/resources/filters.py:14
 msgid "Instant access via the proxy"
-msgstr ""
+msgstr "Okamžitý prístup cez proxy"
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed only after additional steps, such as submitting an application and awaiting approval.
 #: TWLight/resources/filters.py:16
-#, fuzzy
 msgid "Application required"
-msgstr "Žiadosti na posúdenie"
+msgstr "Vyžaduje sa žiadosť"
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this text is shown to indicate how many subject areas a collection covers.
 #: TWLight/resources/filters.py:27
@@ -1368,7 +1367,7 @@ msgstr "Filtrovať"
 #: TWLight/resources/templates/resources/filter_section.html:54
 #: TWLight/users/templates/users/filter_section.html:82
 msgid "Search collection descriptions"
-msgstr ""
+msgstr "Prehľadať opisy zbierok"
 
 #. Translators: This is the title of the form where coordiantors can merge partner suggestions.
 #: TWLight/resources/templates/resources/merge_suggestion.html:34

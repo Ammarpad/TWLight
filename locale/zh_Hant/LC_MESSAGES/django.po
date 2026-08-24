@@ -9,6 +9,7 @@
 # Author: Ice bulldog
 # Author: Impartial just
 # Author: Kly
+# Author: LowensteinYang
 # Author: MuratTheTurkish
 # Author: Nikkimaria
 # Author: Peterxy
@@ -28,7 +29,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-08-18 17:09+0000\n"
-"PO-Revision-Date: 2026-08-20 12:38:49+0000\n"
+"PO-Revision-Date: 2026-08-24 12:30:56+0000\n"
 "Language: zh_hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -971,15 +972,15 @@ msgstr "您的維基百科圖書館取用代碼"
 
 #. Translators: This email is sent to users when their application is approved. Don't translate Jinja variables in curly braces like user or partner; don't translate html tags either. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-body-html.html:5
-#, fuzzy, python-format
+#, python-format
 msgid "<p>Dear %(user)s,</p> <p>Thank you for applying for access to %(partner)s resources through The Wikipedia Library. We are happy to inform you that your application has been approved.</p> <p>%(user_instructions)s</p> <p>You can view the collections you're authorized to access on your My Library page: %(link)s</p> <p>Cheers!</p> <p>The Wikipedia Library</p>"
-msgstr "<p>致 %(user)s：</p> <p>感謝您透過維基百科圖書館申請向 %(partner)s 取用資源。我們很高興向您通知您的申請程序已被核准。一旦處理完畢後，您可以在一到兩週內收到取用方面的細節。<p>%(user_instructions)s</p><p>您可以檢視在我的圖書館裡您被授權取用的典藏：%(link)s</p></p>這實在太好了！<p></p> <p>維基百科圖書館</p>"
+msgstr "<p>致 %(user)s：</p> <p>感謝您透過維基百科圖書館申請取用 %(partner)s 資源。我們很高興地通知您的申請程序已被核准。<p>%(user_instructions)s</p><p>您可以檢視在我的圖書館裡您被授權取用的典藏：%(link)s</p></p>這實在太好了！<p></p> <p>維基百科圖書館 敬上</p>"
 
 #. Translators: This email is sent to users when their application is approved. Don't translate Jinja variables in curly braces like user or partner. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-body-text.html:3
-#, fuzzy, python-format
+#, python-format
 msgid "Dear %(user)s, Thank you for applying for access to %(partner)s resources through The Wikipedia Library. We are happy to inform you that your application has been approved. %(user_instructions)s You can view the collections you're authorized to access on your My Library page: %(link)s Cheers! The Wikipedia Library"
-msgstr "致：%(user)s，感謝您透過維基百科圖書館申請向 %(partner)s 取用資源。我們很高興向您通知您的申請程序已被核准。一旦處理完畢後，您可以在一到兩週內收到取用方面的細節。%(user_instructions)s，您可以檢視在我的圖書館裡您被授權取用的典藏：%(link)s，這實在太好了！維基百科圖書館"
+msgstr "致 %(user)s：感謝您透過維基百科圖書館申請取用 %(partner)s 資源。我們很高興地通知您的申請程序已被核准。%(user_instructions)s 您可以檢視在我的圖書館裡您被授權取用的典藏：%(link)s。這實在太好了！維基百科圖書館 敬上"
 
 #. Translators: This is the subject of an email which is sent to users when their application has been approved. Translate Wikipedia Library in the same way as the global branch is named (click through from https://meta.wikimedia.org/wiki/The_Wikipedia_Library).
 #: TWLight/emails/templates/emails/approval_notification-subject.html:4
@@ -1204,9 +1205,8 @@ msgstr ""
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this indicates that a collection may be accessed only after additional steps, such as submitting an application and awaiting approval.
 #: TWLight/resources/filters.py:16
-#, fuzzy
 msgid "Application required"
-msgstr "要審查的申請程序"
+msgstr "需要申請"
 
 #. Translators: On the MyLibrary page (https://wikipedialibrary.wmflabs.org/users/my_library), this text is shown to indicate how many subject areas a collection covers.
 #: TWLight/resources/filters.py:27

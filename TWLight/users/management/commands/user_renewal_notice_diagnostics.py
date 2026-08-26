@@ -81,18 +81,38 @@ class Command(BaseCommand):
                 partners__isnull=False,
             )
             .exclude(user__userprofile__send_renewal_notices=False)
+            # The partners join makes one row for each partner. Use distinct()
+            # so that an authorization with many partners (a Bundle
+            # authorization that has an expiry date) gets only one email.
+            .distinct()
         )
 
-        no_email_list = []
+        # Collect the primary keys, not the querysets. See the note in
+        # user_renewal_notice.py: a list of querysets makes SQL that removes
+        # every authorization (T407250).
+        no_email_list = set()
         for application in applications_for_renewal:
-            no_email_list.append(
-                expiring_authorizations.values_list("pk").filter(
+            no_email_list.update(
+                expiring_authorizations.filter(
                     partners=application["partner__pk"],
                     user=application["editor__user__pk"],
-                )
+                ).values_list("pk", flat=True)
             )
 
         would_email = expiring_authorizations.exclude(pk__in=no_email_list).count()
+
+        # Show the result of the old, defective exclusion too. A big difference
+        # between the two numbers shows that the defect is present.
+        legacy_no_email_list = [
+            expiring_authorizations.values_list("pk").filter(
+                partners=application["partner__pk"],
+                user=application["editor__user__pk"],
+            )
+            for application in applications_for_renewal
+        ]
+        legacy_would_email = expiring_authorizations.exclude(
+            pk__in=legacy_no_email_list
+        ).count()
 
         w("")
         w(
@@ -108,6 +128,12 @@ class Command(BaseCommand):
         w(
             "  excluded because a renewal was already filed: {}".format(
                 len(no_email_list)
+            )
+        )
+        w(
+            "  same count with the old (defective) exclusion: {}{}".format(
+                legacy_would_email,
+                "   <-- DEFECT PRESENT" if legacy_would_email != would_email else "",
             )
         )
 
@@ -211,6 +237,10 @@ class Command(BaseCommand):
         w(
             "  * would-email=0 AND no in-window auths => genuinely nobody to notify"
             " (not a bug)."
+        )
+        w(
+            "  * 'DEFECT PRESENT' above => the old exclusion removed everybody."
+            " Deploy the T407250 fix in user_renewal_notice.py."
         )
         w("")
         w("Done. No data was modified.")

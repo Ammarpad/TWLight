@@ -647,6 +647,70 @@ class UserRenewalNoticeTest(TestCase):
         call_command("user_renewal_notice")
         self.assertEqual(len(mail.outbox), 1)
 
+    def test_user_renewal_notice_unrelated_renewals_do_not_suppress(self):
+        """
+        Per T407250, renewal applications for authorizations that are NOT in
+        the two-week window must not stop the emails for everybody else.
+
+        Two or more such applications used to build SQL of the form
+        "pk NOT IN ((SELECT ...), (SELECT ...))". An empty sub-query gives
+        NULL, so the test was never true and no user got an email.
+        """
+        # Two other users expire far in the future, so they are outside the
+        # window, and both have a renewal application. This gives two empty
+        # sub-queries.
+        for i in range(2):
+            other_editor = EditorFactory(user__email="other{}@example.com".format(i))
+            other_partner = PartnerFactory(renewals_available=True)
+
+            other_authorization = Authorization()
+            other_authorization.user = other_editor.user
+            other_authorization.authorizer = self.coordinator
+            other_authorization.date_expires = datetime.today() + timedelta(weeks=30)
+            other_authorization.save()
+            other_authorization.partners.add(other_partner)
+
+            other_application = ApplicationFactory(
+                editor=other_editor,
+                sent_by=self.coordinator,
+                partner=other_partner,
+                status=Application.SENT,
+                requested_access_duration=1,
+            )
+            other_application.save()
+            renewed_application = other_application.renew()
+            renewed_application.status = Application.PENDING
+            renewed_application.save()
+
+        call_command("user_renewal_notice")
+
+        # The in-window user must still get an email.
+        self.assertEqual([message.to for message in mail.outbox], [[self.user.email]])
+        self.authorization.refresh_from_db()
+        self.assertTrue(self.authorization.reminder_email_sent)
+
+    def test_user_renewal_notice_multi_partner_sends_one_email(self):
+        """
+        Per T407250, the partners join makes one row for each partner. An
+        authorization with many partners (a Bundle authorization that has an
+        expiry date) must get one email, not one email for each partner.
+        """
+        bundle_editor = EditorFactory(user__email="bundle@example.com")
+        bundle_authorization = Authorization()
+        bundle_authorization.user = bundle_editor.user
+        bundle_authorization.authorizer = self.coordinator
+        bundle_authorization.date_expires = datetime.today() + timedelta(weeks=1)
+        bundle_authorization.save()
+        for _ in range(5):
+            bundle_authorization.partners.add(
+                PartnerFactory(authorization_method=Partner.BUNDLE)
+            )
+
+        call_command("user_renewal_notice")
+
+        recipients = [message.to[0] for message in mail.outbox]
+        self.assertEqual(recipients.count("bundle@example.com"), 1)
+
     @patch("TWLight.emails.tasks.UserRenewalNotice.send", return_value=0)
     def test_user_renewal_notice_not_marked_when_send_fails(self, mock_send):
         """

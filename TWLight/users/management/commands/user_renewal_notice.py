@@ -45,16 +45,27 @@ class Command(BaseCommand):
                 partners__isnull=False,
             )
             .exclude(user__userprofile__send_renewal_notices=False)
+            # The partners join makes one row for each partner. Use distinct()
+            # so that an authorization with many partners (a Bundle
+            # authorization that has an expiry date) gets only one email.
+            .distinct()
         )
 
-        # Create a list of authorizations that already have a renewal application
-        no_email_list = []
+        # Create a set of the primary keys of the authorizations that already
+        # have a renewal application.
+        #
+        # Collect the primary keys. Do not collect the querysets. A list of
+        # querysets becomes a list of scalar sub-queries in SQL. An empty
+        # sub-query gives NULL, and "pk NOT IN (NULL, ...)" is never true. This
+        # removed every authorization from the result and stopped all of the
+        # emails (T407250).
+        no_email_list = set()
         for application in applications_for_renewal:
-            no_email_list.append(
-                expiring_authorizations.values_list("pk").filter(
+            no_email_list.update(
+                expiring_authorizations.filter(
                     partners=application["partner__pk"],
                     user=application["editor__user__pk"],
-                )
+                ).values_list("pk", flat=True)
             )
 
         # Iterate through all expiring authorizations except the ones that have

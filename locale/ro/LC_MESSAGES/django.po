@@ -16,6 +16,7 @@
 # Author: Strainu
 # Author: Tanea.d
 # Author: Trotinel Iftode
+# Author: Vellion Eagle
 # Author: WebSourceContentRO
 msgid ""
 msgstr ""
@@ -23,7 +24,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-08-26 20:18+0000\n"
-"PO-Revision-Date: 2026-08-27 12:30:44+0000\n"
+"PO-Revision-Date: 2026-09-03 12:34:09+0000\n"
 "Language: ro\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2295,7 +2296,7 @@ msgstr "Fără cerere jeton."
 #. Translators: This message is shown when the OAuth login process fails.
 #: TWLight/users/oauth.py:530
 msgid "Access token generation failed, please try logging in again."
-msgstr "Generarea tokenului de acces a eșuat, vă rog încercați să vă conectați din nou."
+msgstr "Generarea tokenului de acces a eșuat, vă rugăm să încercați să vă conectați din nou."
 
 #. Translators: If the user tries to log in, but their account does not meet certain requirements, they cannot login.
 #: TWLight/users/oauth.py:546

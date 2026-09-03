@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: Wikipedia Library Card Platform - Website\n"
 "Report-Msgid-Bugs-To: translatewiki.net\n"
 "POT-Creation-Date: 2026-08-26 20:18+0000\n"
-"PO-Revision-Date: 2026-08-27 12:30:41+0000\n"
+"PO-Revision-Date: 2026-09-03 12:34:04+0000\n"
 "Language: id\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1262,7 +1262,7 @@ msgstr "Nama bakal calon mitra"
 #: TWLight/resources/templates/resources/merge_suggestion.html:60
 #: TWLight/resources/templates/resources/suggest.html:67
 msgid "Description"
-msgstr "Keterangan"
+msgstr "Deskripsi"
 
 #. Translators: This labels a textfield where users can enter the website URL of the potential partner they'll suggest
 #: TWLight/resources/forms.py:27
